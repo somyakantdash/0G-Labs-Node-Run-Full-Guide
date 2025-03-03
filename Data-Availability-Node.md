@@ -28,7 +28,7 @@ screen -S da client
 3️⃣ Build Docker Image
 ```
 cd 0g-da-client
-docker build -t 0g-da-client -f combined.Dockerfile
+docker build -t 0g-da-client -f combined.Dockerfile .
 ```
 
 4️⃣ Create File 
