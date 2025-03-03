@@ -186,7 +186,7 @@ miner_eth_private_key = ""
 # whether to enable data availability sampling
 enable_das = "true"
 ```
-### Socket Address
+### Socket Address (for PC)
 ```
 curl ifconfig.me
 ```
