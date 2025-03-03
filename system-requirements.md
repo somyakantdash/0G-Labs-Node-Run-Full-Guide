@@ -81,11 +81,3 @@ sudo usermod -aG docker ${USER}
 su - ${USER}
 groups
 ```
-
-
-# Network Requirements
-
-- Stable internet connection required
-- Port 8003 must be accessible
-- Supports IPv4 and IPv6
-- Auto-fallback on network errors
