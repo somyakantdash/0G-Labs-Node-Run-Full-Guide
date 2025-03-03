@@ -1,5 +1,7 @@
 # Hardware Requirements 
 
+Official Docs: https://docs.0g.ai/run-a-node/overview
+
 ## Storage Node Hardware Requirements 
 
 In the 0G network, storage nodes play a vital role in maintaining the system's decentralized storage layer. They are responsible for storing and serving data, ensuring data availability and reliability across the network. By running a storage node, you actively contribute to the network and earn rewards for your participation.
@@ -7,8 +9,8 @@ This guide details the process of running a storage node, including hardware spe
 
 | Component | Storage Node | Storage KV |
 |-----------|--------------|------------|
-| Memory    | 4 GB RAM    | 16 GB RAM  |
-| CPU       | 8 cores      | 8 cores    |
+| Memory    | 16 GB RAM    | 4 GB RAM   |
+| CPU       | 4 cores      | 2 cores    |
 | Disk      | 500GB / 1TB NVMe SSD | Size matches the KV streams it maintains |
 | Bandwidth | 100 Mbps (Download / Upload) | - |
 
