@@ -31,8 +31,6 @@ For the first time ever, 0G bridges this cost and efficiency gap between Web2 an
 
 2️⃣ Check: https://icoanalytics.org/projects/0g-labs/
 
-## Run Browser Node [Check Out](Browser-Node.md)
-
-## Run CLI Node [Check Out](CLI-Node.md)   
+## Run Data Availability Node [Check Out](Data-Availability-Node.md)
 
 [System Requiremnets](system-requirements.md)
