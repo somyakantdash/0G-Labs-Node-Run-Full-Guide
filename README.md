@@ -1,4 +1,4 @@
-# 0G-Labs-node-Run-Full-Guide
+# 0G-Labs-Node-Run-Full-Guide
 
 ## Introduction
 The first decentralized AI operating system. The largest AI Layer 1 ecosystem. Infinitely scalable for AI. Performant for everyone. A San Francisco-based project building the first decentralized AI OS, designed for infinite scalability and high-performance AI & Web3 applications.
