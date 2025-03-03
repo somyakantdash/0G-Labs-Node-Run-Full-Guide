@@ -2,7 +2,7 @@
 
 ### Offical Docs by 0G Labs - https://docs.0g.ai/run-a-node/da-node
 
-## Data Availability Client Node
+## Data Availability Client Node (DA Client Node)
 
 1️⃣ Dependencies for WINDOWS & LINUX & VPS
 ```
