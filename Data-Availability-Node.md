@@ -91,6 +91,7 @@ docker logs -f 0g-da-client
 
 #1 Open WSL and Docker
 ```
+cd 0g-da-client
 docker run -d --env-file envfile.env --name 0g-da-client -v ./run:/runtime -p 51001:51001 0g-da-client combined
 ```
 
@@ -151,7 +152,7 @@ cargo run --bin key-gen
 nano $HOME/0g-da-node/config.toml
 ```
 
-4️⃣ Copy & Paste the following code in it (Make sure to fill in the signer_bls_private_key, signer_eth_private_key, and miner_eth_private_key fields with your actual private keys)
+4️⃣ Copy & Paste the following code in it (Make sure to fill in the socket_address, signer_bls_private_key, signer_eth_private_key, and miner_eth_private_key fields with your actual private keys)
 ```
 log_level = "info"
 
@@ -184,6 +185,10 @@ miner_eth_private_key = ""
 # whether to enable data availability sampling
 enable_das = "true"
 ```
+### Socket Address
+```
+curl ifconfig.me
+```
 
 Then save - CTRL+X Then Enter Y Then Enter
 
@@ -202,7 +207,7 @@ sudo journalctl -u 0gda -f -o cat
 
 #1 Open WSL and Docker
 ```
-docker build -t 0g-da-node .
+cd 0g-da-node
 docker run -d --name 0g-da-node 0g-da-node
 ```
 
