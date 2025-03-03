@@ -37,7 +37,9 @@ Running a validator node in the 0G ecosystem means actively participating in the
 | Bandwidth  | 100 MBps for Download / Upload | 100 MBps for Download / Upload |
 
 
-# Software Requirements for PC Users
+# Software Requirements
+
+## Software Requirements for PC Users
 
 1. For Windows Install WSL - https://learn.microsoft.com/en-us/windows/wsl/install#install-wsl-command
 
@@ -51,7 +53,8 @@ brew install git
 
 4. Install Docker - https://www.docker.com/products/docker-desktop/
 
-   🍀For VPS (Additional Only for VPS Users to Download Docker)
+## Software Requirements for VPS Users (Additional Only for VPS Users to Download Docker)
+
 ```
 sudo apt update -y
 ```
