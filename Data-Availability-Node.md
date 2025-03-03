@@ -22,7 +22,7 @@ git clone https://github.com/0glabs/0g-da-client.git
 
 For VPS Only
 ```
-screen -S pipe
+screen -S da client
 ```
 
 3️⃣ Build Docker Image
@@ -87,11 +87,128 @@ docker ps
 docker logs -f 0g-da-client
 ```
 
-## 🔶For Next Day Run This Command
+### 🔶For Next Day Run This Command
 
 #1 Open WSL and Docker
 ```
 docker run -d --env-file envfile.env --name 0g-da-client -v ./run:/runtime -p 51001:51001 0g-da-client combined
 ```
 
+### Delete DA Client node
+```
+docker stop 0g-da-client
+docker rm 0g-da-client
+rm -rf $HOME/0g-da-client
+```
 
+## Data Availability Node (DA Node)
+
+1️⃣ Dependencies for WINDOWS & LINUX & VPS
+```
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl git wget htop tmux build-essential jq make gcc tar clang pkg-config libssl-dev ncdu protobuf-compiler -y
+```
+
+2️⃣ Install Go & Rust
+```
+cd $HOME
+VER="1.22.0"
+wget "https://golang.org/dl/go$VER.linux-amd64.tar.gz"
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf "go$VER.linux-amd64.tar.gz"
+rm "go$VER.linux-amd64.tar.gz"
+[ ! -f ~/.bash_profile ] && touch ~/.bash_profile
+echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bash_profile
+source $HOME/.bash_profile
+[ ! -d ~/go/bin ] && mkdir -p ~/go/bin
+go version
+```
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+3️⃣ Download Some Files
+```
+cd $HOME
+rm -rf 0g-da-node
+git clone https://github.com/0glabs/0g-da-node.git
+cd 0g-da-node
+git fetch --all --tag
+git checkout v1.1.3
+git submodule update --init
+cargo build --release
+./dev_support/download_params.sh
+```
+
+Generate BLS private key, if you don't have one. It will register the signer information in DA contract when you first run DA node.
+❗NOTE: Keep the key safe
+```
+cargo run --bin key-gen
+```
+
+3️⃣ Create File
+```
+nano $HOME/0g-da-node/config.toml
+```
+
+4️⃣ Copy & Paste the following code in it (Make sure to fill in the signer_bls_private_key, signer_eth_private_key, and miner_eth_private_key fields with your actual private keys)
+```
+log_level = "info"
+
+data_path = "./db/"
+
+# path to downloaded params folder
+encoder_params_dir = "params/" 
+
+# grpc server listen address
+grpc_listen_address = "0.0.0.0:34000"
+# chain eth rpc endpoint
+eth_rpc_endpoint = "https://evmrpc-testnet.0g.ai"
+# public grpc service socket address to register in DA contract
+# ip:34000 (keep same port as the grpc listen address)
+# or if you have dns, fill your dns
+socket_address = "<public_ip/dns>:34000"
+
+# data availability contract to interact with
+da_entrance_address = "0x857C0A28A8634614BB2C96039Cf4a20AFF709Aa9"
+# deployed block number of da entrance contract
+start_block_number = 940000
+
+# signer BLS private key
+signer_bls_private_key = ""
+# signer eth account private key
+signer_eth_private_key = ""
+# miner eth account private key, (could be the same as 'signer_eth_private_key', but not recommended)
+miner_eth_private_key = ""
+
+# whether to enable data availability sampling
+enable_das = "true"
+```
+
+Then save - CTRL+X Then Enter Y Then Enter
+
+5️⃣ Start Node
+```
+docker build -t 0g-da-node .
+docker run -d --name 0g-da-node 0g-da-node
+```
+
+6️⃣ Check Your Logs
+```
+sudo journalctl -u 0gda -f -o cat
+```
+
+### 🔶For Next Day Run This Command
+
+#1 Open WSL and Docker
+```
+docker build -t 0g-da-node .
+docker run -d --name 0g-da-node 0g-da-node
+```
+
+### Delete DA node
+```
+docker stop 0g-da-node
+sudo rm /etc/systemd/system/0gda.service
+rm -rf $HOME/0g-da-node
+```
