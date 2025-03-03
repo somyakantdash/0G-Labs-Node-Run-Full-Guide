@@ -127,6 +127,7 @@ go version
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
+- Then Just Press Enter
 
 3️⃣ Download Some Files
 ```
