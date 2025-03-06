@@ -27,6 +27,7 @@ To operate effectively, your DA signer needs to run a DA node to verify encoded 
 |-----------|--------|-----|------|-----------|------------------|
 | DA Node   | 16 GB | 8 cores | 1 TB NVMe SSD | 100 MBps | For Download/Upload |
 | DA Client | 4 GB | 2 cores | 50 MB HDD or SSD | 100 MBps | For Download/Upload |
+| DA Retriever | 4 GB | 2 cores | 50 MB HDD or SSD | 100 MBps | For Download/Upload |
 
 ## Validator Node Hardware Requirements
 
