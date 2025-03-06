@@ -218,3 +218,99 @@ docker stop 0g-da-node
 sudo rm /etc/systemd/system/0gda.service
 rm -rf $HOME/0g-da-node
 ```
+
+## Data Availability Retriever Node (DA Retriever Node)
+
+1️⃣ Dependencies for WINDOWS & LINUX & VPS
+```
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl git wget htop tmux build-essential jq make gcc tar clang pkg-config libssl-dev ncdu protobuf-compiler -y
+```
+
+For VPS Only
+```
+apt install screen -y
+```
+
+2️⃣ Install Rust
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+3️⃣ Download Some Files
+```
+cd $HOME
+rm -rf 0g-da-retriever
+git clone https://github.com/0glabs/0g-da-retriever.git
+cd 0g-da-retriever
+```
+
+4️⃣ Build in release mode
+```
+cargo build --release
+```
+
+5️⃣ Update configuration
+```
+nano $HOME/0g-da-retriever/run/config.toml
+```
+
+6️⃣ Sample
+```
+log_level = "info"
+grpc_listen_address = "0.0.0.0:34005"
+
+#YOUR_RPC_ENDPOINT:
+eth_rpc_endpoint = "https://evmrpc-testnet.0g.ai" 
+```
+
+Then save - CTRL+X Then Enter Y Then Enter
+
+7️⃣ Create Service file
+```
+sudo tee /etc/systemd/system/0gdar.service > /dev/null <<EOF
+[Unit]
+Description=0G-DA Retriever
+After=network.target
+
+[Service]
+User=$USER
+WorkingDirectory=$HOME/0g-da-retriever
+ExecStart=$HOME/0g-da-retriever/target/release/retriever --config $HOME/0g-da-retriever/run/config.toml
+Restart=always
+RestartSec=10
+LimitNOFILE=65535
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+7️⃣ Start Node
+```
+sudo systemctl daemon-reload && sudo systemctl enable 0gdar && sudo systemctl start 0gdar && sudo systemctl status 0gdar && sudo journalctl -u 0gdar -f -o cat
+docker ps
+```
+
+8️⃣ View Your Logs
+```
+journalctl -u 0gdar -f -o cat
+```
+
+### 🔶For Next Day Run This Command
+
+#1 Open WSL and Docker
+```
+cd 0g-da-retriever
+sudo systemctl daemon-reload && sudo systemctl enable 0gdar && sudo systemctl start 0gdar && sudo systemctl status 0gdar && sudo journalctl -u 0gdar -f -o cat
+```
+
+### Delete DA Retriever node
+```
+sudo systemctl stop 0gdar
+sudo systemctl disable 0gdar
+sudo rm /etc/systemd/system/0gdar.service
+rm -rf $HOME/0g-da-retriever
+```
