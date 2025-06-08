@@ -9,8 +9,8 @@ This guide details the process of running a storage node, including hardware spe
 
 | Component | Storage Node | Storage KV |
 |-----------|--------------|------------|
-| Memory    | 16 GB RAM    | 4 GB RAM   |
-| CPU       | 4 cores      | 4 cores    |
+| Memory    | 32/16 (min) GB RAM    | 32/16 (min) GB RAM   |
+| CPU       | 8/6 (min) cores      | 8/6 (min) cores    |
 | Disk      | 500GB / 1TB NVMe SSD | Size matches the KV streams it maintains |
 | Bandwidth | 100 Mbps (Download / Upload) | - |
 
