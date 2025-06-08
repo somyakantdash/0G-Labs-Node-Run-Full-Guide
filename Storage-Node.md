@@ -74,7 +74,7 @@ cargo build --release
 rm -rf $HOME/0g-storage-node/run/config.toml
 ```
 ```
-curl -o $HOME/0g-storage-node/run/config.toml https://raw.githubusercontent.com/somyakantdash/0G-Labs-Node-Run-Full-Guide//main/config.toml
+curl -o $HOME/0g-storage-node/run/config.toml https://raw.githubusercontent.com/somyakantdash/0G-Labs-Node-Run-Full-Guide/main/config.toml
 ```
 ```
 nano $HOME/0g-storage-node/run/config.toml
