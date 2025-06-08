@@ -33,4 +33,6 @@ For the first time ever, 0G bridges this cost and efficiency gap between Web2 an
 
 ## Run Data Availability Node [Check Out](Data-Availability-Node.md)
 
+## Run Storage Node [Check Out](Storage-Node.md)
+
 [System Requiremnets](system-requirements.md)
