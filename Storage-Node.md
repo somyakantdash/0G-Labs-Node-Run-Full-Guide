@@ -50,12 +50,12 @@ For VPS Only
 apt install screen -y
 ```
 ```
-screen -S 0g stoarge node
+screen -S 0g-stoarge-node
 ```
 - PRESS CTRL+A+D (to run ur node continuously)
 - To check ur Node Again
 ```
-screen -r 0g stoarge node
+screen -r 0g-stoarge-node
 ```
 
 4️⃣ Clone the Repository
