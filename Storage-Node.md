@@ -50,7 +50,7 @@ For VPS Only
 apt install screen -y
 ```
 ```
-screen -S blockcast
+screen -S 0g stoarge node
 ```
 - PRESS CTRL+A+D (to run ur node continuously)
 - To check ur Node Again
