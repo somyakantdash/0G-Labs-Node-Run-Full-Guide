@@ -155,7 +155,7 @@ cd 0g-storage-node
 sudo systemctl start zgs
 ```
 
-## Stop & Delete Blockcast node
+## Stop & Delete Storage node
 ```
 sudo systemctl stop zgs
 ```
