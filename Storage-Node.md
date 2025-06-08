@@ -76,18 +76,16 @@ rm -rf $HOME/0g-storage-node/run/config.toml
 ```
 curl -o $HOME/0g-storage-node/run/config.toml https://raw.githubusercontent.com/somyakantdash/0G-Labs-Node-Run-Full-Guide//main/config.toml
 ```
-
-* Add Your Wallet's Private KEY in `config.toml`, ❗❗Dont Add **0X** before the key
-* Add Your RPC also in `config.toml`, ❗❗Dont Add **0X** before the key
--open and go to `miner_key` and add your pvt key:
-
 ```
 nano $HOME/0g-storage-node/run/config.toml
 ```
 
+* Go to "Log Sync Config Option" > Then Add ur any Public RPC
+* Go to "Mine Config Option" > Put ur Wallet Private KEY in `miner-key` section ❗❗Dont Add **0X** before the key
+
 ![image](https://github.com/user-attachments/assets/a513812f-177e-4a74-83a9-1548c98f4556)
 
-### If u want to change RPC then follow this:
+### If u want to Public RPC
 
 1. Get any RPC - https://www.astrostake.xyz/0g-status
 
