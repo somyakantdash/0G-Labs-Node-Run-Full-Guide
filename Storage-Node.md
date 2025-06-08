@@ -74,7 +74,7 @@ cargo build --release
 rm -rf $HOME/0g-storage-node/run/config.toml
 ```
 ```
-curl -o $HOME/0g-storage-node/run/config.toml https://raw.githubusercontent.com/Mayankgg01/0G-Storage-Node-Guide/main/config.toml
+curl -o $HOME/0g-storage-node/run/config.toml https://raw.githubusercontent.com/somyakantdash/0G-Labs-Node-Run-Full-Guide//main/config.toml
 ```
 
 * Add Your Wallet's Private KEY in `config.toml`, ❗❗Dont Add **0X** before the key
